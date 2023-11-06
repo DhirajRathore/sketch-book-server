@@ -4,11 +4,15 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-app.use(cors({ origin: "http://localhost:3000" }));
+const URL =
+  app.settings.env === "development"
+    ? "http://localhost:3000"
+    : "https://sketch-book-8q84.vercel.app";
+app.use(cors({ origin: URL }));
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
-  cors: "http://localhost:3000",
+  cors: URL,
 });
 
 io.on("connection", (socket) => {
