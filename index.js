@@ -7,7 +7,7 @@ const app = express();
 const URL =
   app.settings.env === "development"
     ? "http://localhost:3000"
-    : "https://sketch-book-8q84.vercel.app";
+    : "https://sketch-book-8q84-c82gop1kf-dhiraj-singh-rathores-projects.vercel.app";
 app.use(cors({ origin: URL }));
 
 const httpServer = createServer();
